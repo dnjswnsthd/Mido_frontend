@@ -1,3 +1,4 @@
+import Link from "next/link";
 import style from "./misigdoItem.module.scss";
 const MisigdoItem = () => {
   return (
@@ -10,7 +11,7 @@ const MisigdoItem = () => {
           </p>
           <p className={style.write_date}>2month ago</p>
         </div>
-        <div className={style.more_button}>더보기</div>
+        <Link href="/detail/id" className={style.more_button}>더보기</Link>
       </div>
       <div className={style.misigdo_bottom_area}>
         <section className={style.content_left_section}></section>

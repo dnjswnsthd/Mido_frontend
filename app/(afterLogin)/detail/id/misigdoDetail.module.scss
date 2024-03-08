@@ -1,0 +1,65 @@
+.misigdo_detail_page{
+  display:flex;
+  flex-direction: column;
+  
+  .top_area{
+    display:flex;
+    align-items: center;
+    .profile{
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background-color:#fff;
+    }
+    .pioneer_name{
+      margin-left:8px;
+    }
+    .other_name,.write_date{
+      font-size:0.8rem;
+      margin:0 4px;
+    }
+  }
+  .middle_area{
+    .round_list{
+      display:flex;
+      padding:8px 0;
+      border-bottom:1px solid #eee;
+      .round_item{
+        display:flex;
+        justify-content:center;
+        align-items: center;
+        border:1px solid #eee;
+        border-radius:5px;
+        width:40px;
+        max-width:40px;
+        margin: 0 4px;
+        &:first-child{
+          margin-left:0;
+        }
+        &:last-child{
+          margin-right:0;
+        }
+      }
+    }
+  }
+  .middle_description_area{
+    display:flex;
+    .middle_left_section{
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+    .middle_right_section{
+      display:flex;
+      flex-direction: column;
+      flex:1;
+      .map_box{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height:200px;
+        border:1px solid #eee;
+      }
+    }
+  }
+}
