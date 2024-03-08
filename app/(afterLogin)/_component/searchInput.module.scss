@@ -1,0 +1,28 @@
+.search_input_wrap{
+  display:flex;
+  padding:0.7em;
+  border-radius: 1rem;
+  background-color: #fff;
+  border:2px solid #2DC770;
+  .search_input{
+    display:flex;
+    flex-grow:1;
+    justify-content: center;
+    align-items: center;
+    border:none;
+    height:20px;
+    &:focus{
+      outline: none;
+      border:none;
+    }
+  }
+  .search_button{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background:none;
+    border:none;
+    width:20px;
+    height:20px;
+  }
+}

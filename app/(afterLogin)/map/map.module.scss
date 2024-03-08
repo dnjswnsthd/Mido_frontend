@@ -1,0 +1,25 @@
+.map_page_container{
+  display:flex;
+  justify-content: space-between;
+  flex:1;
+  flex-direction: column;
+  border: 1px solid #eee;
+
+  .map_content{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:inherit;
+    padding: 0.8rem;
+  }
+  .show_search_list{
+    display:flex;
+    height:40px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #2DC770;
+    background-color: #fff;
+    align-items: center;
+    padding:0.8rem;
+    color:#212121;
+  }
+}
