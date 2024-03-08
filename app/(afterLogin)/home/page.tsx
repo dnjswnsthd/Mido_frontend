@@ -3,7 +3,7 @@ import style from "./home.module.scss";
 const Home = () => {
   return (
     <div className={style.home_page_container}>
-      <h1 className={style.home_page_title}>MIDO</h1>
+      <h1 className={style.home_page_title}></h1>
       <ul className={style.misigdo_list}>
         <MisigdoItem />
         <MisigdoItem />
