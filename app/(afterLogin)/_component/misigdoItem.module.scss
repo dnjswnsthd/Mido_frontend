@@ -1,0 +1,111 @@
+.misigdo_item{
+  display:flex;
+  flex:1;
+  flex-direction: column;
+  padding-bottom:8px;
+  border-bottom:1px solid #eee;
+  .misigdo_top_area{
+    display:flex;
+    justify-content: space-between;
+    padding:8px;
+    .pioneer_wrap{
+      display:flex;
+      justify-content: flex-start;
+      align-items: center;
+      .profile_image{
+        width:20px;
+        height:20px;
+        border-radius:50%;
+        background-color: #fff;
+      }
+      .boss_name{
+        font-weight:900;
+        font-size:1.1em;
+      }
+      .member_name{
+        font-weight:900;
+        font-size:0.8em;
+      }
+      .write_date{
+        display:flex;
+        align-items: center;
+        font-size:0.8em;
+      }
+    }
+    .more_button{
+      display:flex;
+      align-items: center;
+      font-size:0.8em;
+    }
+  }
+  .misigdo_bottom_area{
+    display:flex;
+    .content_left_section{
+      display:flex;
+      flex:1;
+      background-color: #2dc770;
+    }
+    .content_right_section{
+      display:flex;
+      flex-direction: column;
+      flex:1;
+      .content_title{
+        display:flex;
+        justify-content: space-between;
+      }
+      .content_menu_row{
+        display:flex;
+        justify-content: space-between;
+        div{
+          font-size: 0.8em;
+        }
+      }
+      .content_address{
+        display:flex;
+        font-size: 0.8em;
+        div{
+          display:flex;
+          justify-content: center;
+          flex:3;
+          width:20px;
+          font-size: 0.8em;
+        }
+        span{
+          display:flex;
+          flex:9;
+          font-size: 0.8em;
+        }
+      }
+
+      .content_review_chart_wrap{
+        display:flex;
+        flex-direction: column;
+        .content_review_chart_item{
+          display:flex;
+          span{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex:3;
+            font-size: 0.7em;
+          }
+          .content_review_chart{
+            display:flex;
+            flex:11;
+            flex-direction: column;
+            .content_review_value_chart{
+              display:flex;
+              height:20px;
+              background-color:#2dc770;
+            }
+            .content_review_average_chart{
+              display:flex;
+              height:20px;
+              background-color:#00B4FF;
+            }
+          }
+        }
+      }
+    }
+  }
+}

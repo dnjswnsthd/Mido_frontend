@@ -1,0 +1,14 @@
+.home_page_container{
+  display:flex;
+  justify-content: flex-start;
+  flex:1;
+  flex-direction: column;
+  .home_page_title{
+    color:#2DC770;
+  }
+
+  .misigdo_list{
+    display:flex;
+    flex-direction: column;
+  }
+}
