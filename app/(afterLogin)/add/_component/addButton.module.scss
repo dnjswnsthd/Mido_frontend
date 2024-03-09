@@ -1,0 +1,17 @@
+
+.add_button_area{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  .add_button{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex:1;
+    flex-grow:1;
+    height:100px;
+    border:1px solid #eee;
+    background:none;
+    color:inherit;
+  }
+}

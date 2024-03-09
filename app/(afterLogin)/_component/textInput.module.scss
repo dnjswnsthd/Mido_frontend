@@ -1,0 +1,13 @@
+.input_wrap{
+  display:flex;
+  align-items: center;
+  .input_label{
+    display:flex;
+    flex:1;
+  }
+  .input{
+    display:flex;
+    flex-grow:1;
+    height:20px;
+  }
+}
