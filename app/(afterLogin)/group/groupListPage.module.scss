@@ -1,0 +1,17 @@
+.group_list_page{
+  .top_area{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    h2{display:flex;}
+    .button_area{
+      button{
+        width:20px;
+        background:none;
+        border:none;
+        outline:none;
+        color:inherit;
+      }
+    }
+  }
+}

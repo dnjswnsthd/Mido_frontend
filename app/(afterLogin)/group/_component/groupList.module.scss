@@ -1,0 +1,30 @@
+.group_list{
+  .group_list_item{
+    display:flex;
+    flex-direction: column;
+    border:1px solid #eee;
+    margin: 8px 0;
+    .top_area{
+      display:flex;
+      justify-content: space-between;
+      margin-bottom:12px;
+      .group_title{
+        display:flex;
+        align-items: center;
+        .pioneer_cnt span{
+          font-size:0.8em;
+        }
+      }
+    }
+    .user_list{
+      display:flex;
+      li{
+        margin:0 8px; 
+        &:first-child{
+          margin-left:0;
+        }
+      }
+      
+    }
+  }
+}
