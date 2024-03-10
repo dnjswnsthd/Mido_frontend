@@ -6,7 +6,7 @@ const Main = () => {
     <div className={style.main_container}>
       <div className={style.logo_image}>
         <video autoPlay muted loop playsInline>
-          <source src={"/mido.mp4"} type="video/mp4"></source>
+          <source src={"/Mido_2.mp4"} type="video/mp4"></source>
         </video>
       </div>
       <div className={style.login_container}>
