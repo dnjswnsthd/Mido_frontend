@@ -11,7 +11,7 @@ const MisigdoItem = () => {
     <li className={style.misigdo_item}>
       <div className={style.misigdo_top_area}>
         <div className={style.pioneer_wrap}>
-          <div className={style.profile_image}></div>
+          <div className={style.profile_image} />
           <p>
             <span className={style.boss_name}>JuneHyung</span> <span className={style.member_name}>외 2명</span>
           </p>

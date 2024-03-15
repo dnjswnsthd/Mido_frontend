@@ -10,7 +10,9 @@ const SearchInput = ({isSearch, onClick}: {isSearch?: boolean, onClick?: Dispatc
       ? <button className={style.search_button} onClick={()=>onClick(!isSearch)}>
         <MdiIcon path={"mdiMagnify"} color={'#2DC770'}/>
       </button> 
-      : <button className={style.search_button}></button>}
+      : <button className={style.search_button}>
+        <MdiIcon path={"mdiMagnify"} color={'#2DC770'}/>
+        </button>}
       
     </div>
   )

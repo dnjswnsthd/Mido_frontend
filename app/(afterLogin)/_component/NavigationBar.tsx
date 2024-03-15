@@ -2,7 +2,7 @@
 import Link from "next/link";
 import style from "./navigationBar.module.scss";
 import MdiIcon, { MdiIconProps } from "./MdiIcon";
-import { usePathname } from "next/navigation";
+import { usePathname, useSelectedLayoutSegments } from "next/navigation";
 
 interface pathInfo {
   link: string;
@@ -13,22 +13,23 @@ interface pathInfo {
 }
 
 const pathInfoList:pathInfo[] = [
-  {link: '/home', icon: 'mdiHomeOutline', size: 24, color: '#fff', activeIcon: 'mdiHome'},
-  {link: '/map', icon: 'mdiMapSearchOutline', size: 24, color: '#fff',  activeIcon: 'mdiMapSearch'},
-  {link: '/add', icon: 'mdiPlus', size: 24, color: '#fff',  activeIcon: 'mdiPlus'},
-  {link: '/group', icon: 'mdiAccountGroupOutline', size: 24, color: '#fff',  activeIcon: 'mdiAccountGroup'},
-  {link: '/user', icon: 'mdiAccountOutline', size: 24, color: '#fff',  activeIcon: 'mdiAccount'},
+  {link: 'home', icon: 'mdiHomeOutline', size: 24, color: '#fff', activeIcon: 'mdiHome'},
+  {link: 'map', icon: 'mdiMapSearchOutline', size: 24, color: '#fff',  activeIcon: 'mdiMapSearch'},
+  {link: 'add', icon: 'mdiPlus', size: 24, color: '#fff',  activeIcon: 'mdiPlus'},
+  {link: 'group', icon: 'mdiAccountGroupOutline', size: 24, color: '#fff',  activeIcon: 'mdiAccountGroup'},
+  {link: 'user', icon: 'mdiAccountOutline', size: 24, color: '#fff',  activeIcon: 'mdiAccount'},
 ]
 
 const NavigationBar = () => {
-  const pathname = usePathname();
+  const pathnames = useSelectedLayoutSegments();
+  
   return (
     <nav className={style.navigation_bar}>
       {
         pathInfoList.map(pathInfo=>{
           return (
-            <Link href={pathInfo.link} key={pathInfo.link} className={`${style.navigation_item} ${pathname===pathInfo.link && style.active_item}`}>
-              <MdiIcon path={pathname===pathInfo.link ? pathInfo.activeIcon : pathInfo.icon} size={pathInfo.size} color={pathInfo.color}/>
+            <Link href={`/${pathInfo.link}`} key={pathInfo.link} className={`${style.navigation_item} ${pathnames[0]===pathInfo.link && style.active_item}`}>
+              <MdiIcon path={pathnames[0]===pathInfo.link ? pathInfo.activeIcon : pathInfo.icon} size={pathInfo.size} color={pathInfo.color}/>
             </Link>
           )
         })

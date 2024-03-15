@@ -4,6 +4,7 @@
   border-radius: 1rem;
   background-color: #fff;
   border:2px solid #2DC770;
+  background-color:#C8F4DB;
   .search_input{
     display:flex;
     flex-grow:1;
@@ -11,6 +12,9 @@
     align-items: center;
     border:none;
     height:20px;
+    background-color:#C8F4DB;
+    color: #2DC770;
+    font-weight:600;
     &:focus{
       outline: none;
       border:none;

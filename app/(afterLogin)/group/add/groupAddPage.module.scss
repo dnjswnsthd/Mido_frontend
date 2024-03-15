@@ -1,0 +1,44 @@
+.add_group_page{
+  .top_area{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    h2{display:flex;}
+    .button_area{
+      button{
+        background:none;
+        border:none;
+        outline:none;
+        color:inherit;
+      }
+    }
+  }
+  .search_area{
+    display:flex;
+    flex-direction: column;
+  }
+
+  .group_member_list{
+
+  }
+
+  .search_result_list{
+    display: flex;
+    flex-direction: column;
+    .search_result_item{
+      display: flex;
+      justify-content: space-between;
+      .result_left_area{
+        display:flex;
+        flex:11;
+        align-items: center;
+      }
+      .result_right_area{
+        display:flex;
+        flex:1;
+        justify-content: flex-end;
+        align-items: center;
+      }
+    }
+  }
+}

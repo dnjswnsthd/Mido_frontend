@@ -1,13 +1,21 @@
-.input_wrap{
-  display:flex;
+.input_wrap {
+  display: flex;
   align-items: center;
-  .input_label{
-    display:flex;
-    flex:1;
+  padding: 4px;
+  border-radius: 5px;
+
+  .input_label {
+    display: flex;
+    flex: 1;
   }
-  .input{
-    display:flex;
-    flex-grow:1;
-    height:20px;
+  .input {
+    display: flex;
+    width:200px;
+    align-items: center;
+    flex-grow: 1;
+    height: 20px;
+    &:focus {
+      outline: none;
+    }
   }
 }
