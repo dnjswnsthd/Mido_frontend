@@ -15,6 +15,14 @@
           font-size:0.8em;
         }
       }
+      .button_wrap{
+        button{
+          background:none;
+          outline:none;
+          border:none;
+          cursor: pointer;
+        }
+      }
     }
     .user_list{
       display:flex;

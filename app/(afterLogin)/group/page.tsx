@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 
 import style from "./groupListPage.module.scss";
 import GroupList from "./_component/GroupList";
+import MdiIcon from "../_component/MdiIcon";
 const GroupListPage = () => {
   const [list, setList] = useState<Number[]>([1, 2, 3]);
   const handleOnClick = () => {
@@ -14,8 +15,12 @@ const GroupListPage = () => {
       <div className={style.top_area}>
         <h2>그룹</h2>
         <div className={style.button_area}>
-          <button>S</button>
-          <button>A</button>
+          <button>
+            <MdiIcon path={'mdiMagnify'} size={20}/>
+          </button>
+          <button>
+            <MdiIcon path={'mdiPlusBoxMultipleOutline'} size={20}/>
+          </button>
         </div>
       </div>
       <GroupList />

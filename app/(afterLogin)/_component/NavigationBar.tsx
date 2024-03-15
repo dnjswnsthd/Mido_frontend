@@ -1,13 +1,38 @@
+"use client";
 import Link from "next/link";
 import style from "./navigationBar.module.scss";
+import MdiIcon, { MdiIconProps } from "./MdiIcon";
+import { usePathname } from "next/navigation";
+
+interface pathInfo {
+  link: string;
+  icon: MdiIconProps['path'];
+  size?: number;
+  color?: string;
+  activeIcon: MdiIconProps['path'];
+}
+
+const pathInfoList:pathInfo[] = [
+  {link: '/home', icon: 'mdiHomeOutline', size: 24, color: '#fff', activeIcon: 'mdiHome'},
+  {link: '/map', icon: 'mdiMapSearchOutline', size: 24, color: '#fff',  activeIcon: 'mdiMapSearch'},
+  {link: '/add', icon: 'mdiPlus', size: 24, color: '#fff',  activeIcon: 'mdiPlus'},
+  {link: '/group', icon: 'mdiAccountGroupOutline', size: 24, color: '#fff',  activeIcon: 'mdiAccountGroup'},
+  {link: '/user', icon: 'mdiAccountOutline', size: 24, color: '#fff',  activeIcon: 'mdiAccount'},
+]
+
 const NavigationBar = () => {
+  const pathname = usePathname();
   return (
     <nav className={style.navigation_bar}>
-      <Link href="/home" className={style.navigation_item}>H</Link>
-      <Link href="/map" className={style.navigation_item}>M</Link>
-      <Link href="/add" className={style.navigation_item}>A</Link>
-      <Link href="/group" className={style.navigation_item}>G</Link>
-      <Link href="/user" className={style.navigation_item}>U</Link>
+      {
+        pathInfoList.map(pathInfo=>{
+          return (
+            <Link href={pathInfo.link} key={pathInfo.link} className={`${style.navigation_item} ${pathname===pathInfo.link && style.active_item}`}>
+              <MdiIcon path={pathname===pathInfo.link ? pathInfo.activeIcon : pathInfo.icon} size={pathInfo.size} color={pathInfo.color}/>
+            </Link>
+          )
+        })
+      }
     </nav>
   )
 }

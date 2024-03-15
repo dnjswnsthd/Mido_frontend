@@ -3,6 +3,8 @@
   flex:1;
   justify-content: center;
   position:sticky;
+  margin-top:0.5rem;
+  border-top:2px solid #2DC770;
   .navigation_item {
     display: flex;
     flex:1;
@@ -10,11 +12,13 @@
     height: 60px;
     justify-content: center;
     align-items: center;
-    background-color:#fff;
-    color:#212121;
+    background-color:#121212;
     &:nth-child(2n){
       border-left: 1px solid #212121;
       border-right: 1px solid #212121;
     }
+  }
+  .active_item{
+    svg path{fill: #2dc770 !important}
   }
 }

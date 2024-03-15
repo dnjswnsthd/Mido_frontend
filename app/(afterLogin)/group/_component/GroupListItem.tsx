@@ -1,3 +1,4 @@
+import MdiIcon from "../../_component/MdiIcon";
 import style from "./groupList.module.scss";
 
 const GroupListItem = () => {
@@ -11,9 +12,13 @@ const GroupListItem = () => {
             <span>3</span>
           </div>
         </h3>
-        <div>
-          <button>U</button>
-          <button>D</button>
+        <div className={style.button_wrap}>
+          <button>
+            <MdiIcon path={'mdiPencil'} size={20} color={'#fff'}/>
+          </button>
+          <button>
+            <MdiIcon path={'mdiDelete'} size={20} color={'#fff'}/>
+          </button>
         </div>
       </div>
       <ul className={style.user_list}>
