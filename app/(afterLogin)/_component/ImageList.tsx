@@ -16,7 +16,7 @@ const ImageList = ({images}: any) => {
     <ul className={style.image_list}>
       <div className={style.prev_button} onClick={prevImage}>&lt;</div>
       <li className={style.image_item}>
-        <Image src={images[idx]} layout="intrinsic"  alt={`Image${idx+1}`} width={600} height={400}/>
+        <Image src={images[idx]} layout="intrinsic" alt={`Image${idx+1}`} width={600} height={400}/>
       </li>
       <div className={style.next_button} onClick={nextImage}>&gt;</div>
     </ul>
