@@ -1,6 +1,8 @@
+import Loading from "../../_component/Loading";
+
 const PhotoBackPage = () =>{
   return (
-    <div>Hi</div>
+    <Loading />
   )
 }
 
