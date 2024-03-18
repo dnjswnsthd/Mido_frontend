@@ -1,15 +1,77 @@
 import MisigdoItem from "../../_component/MisigdoItem";
+import MisigdoList from "../../_component/MisigdoList";
 import SearchInput from "../../_component/SearchInput";
+
+const dummy = {
+  group_name: "구디 대한족발 팟",
+  pioneer_list: [
+    { pioneer_id: "user00", pioneer_nickname: "SONG", pioneer_image_url: "" },
+    { pioneer_id: "user01", pioneer_nickname: "JuneHyung", pioneer_image_url: "" },
+    { pioneer_id: "user02", pioneer_nickname: "Soon", pioneer_image_url: "" },
+  ],
+  boss_id: "user01",
+  boss_nickname: "JuneHyung",
+  round: [
+    {
+      round_id: 0,
+      round_num: 0,
+      restaurant_name: "대한족발",
+      restaurant_addr: "서울특별시 구로구 구로동 디지털로32나길17-8",
+      main_menu_name: "족발, 족발",
+      side_menu_name: "좌족발, 우족발",
+      drink_name: "테라, 참이슬",
+      dessert_name: "족발",
+      review_image: [
+        "https://images.unsplash.com/photo-1602808180309-2e0c62986635?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "https://images.unsplash.com/photo-1583434987437-1b9dcbe44c9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "https://images.unsplash.com/photo-1603052227529-e8ed43c7af99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      ],
+      evaluation: { round_id: 0, round_num: 0, round_evaluation_id: 0, total_score: 3.0, food_score: 3.0, service_score: 3.5, price_score: 2.0, atmosphere_score: 5.0, review: "JMT" },
+      average_evaluation: { food_score: 4.0, service_score: 4.0, price_score: 3.0, atmosphere_score: 4.0, review: "JMT" },
+    },
+    {
+      round_id: 0,
+      round_num: 0,
+      restaurant_name: "대한족발",
+      restaurant_addr: "서울특별시 구로구 구로동 디지털로32나길17-8",
+      main_menu_name: "족발, 족발",
+      side_menu_name: "좌족발, 우족발",
+      drink_name: "테라, 참이슬",
+      dessert_name: "족발",
+      review_image: [
+        "https://images.unsplash.com/photo-1602808180309-2e0c62986635?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "https://images.unsplash.com/photo-1583434987437-1b9dcbe44c9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "https://images.unsplash.com/photo-1603052227529-e8ed43c7af99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      ],
+      evaluation: { round_id: 0, round_num: 0, round_evaluation_id: 0, total_score: 3.5, food_score: 4.0, service_score: 3.5, price_score: 3.0, atmosphere_score: 5.0, review: "JMT" },
+      average_evaluation: { food_score: 4.0, service_score: 3.5, price_score: 3.0, atmosphere_score: 5.0, review: "JMT" },
+    },
+    {
+      round_id: 0,
+      round_num: 0,
+      restaurant_name: "대한족발",
+      restaurant_addr: "서울특별시 구로구 구로동 디지털로32나길17-8",
+      main_menu_name: "족발, 족발",
+      side_menu_name: "좌족발, 우족발",
+      drink_name: "테라, 참이슬",
+      dessert_name: "족발",
+      review_image: [
+        "https://images.unsplash.com/photo-1602808180309-2e0c62986635?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "https://images.unsplash.com/photo-1583434987437-1b9dcbe44c9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "https://images.unsplash.com/photo-1603052227529-e8ed43c7af99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      ],
+      evaluation: { round_id: 0, round_num: 0, round_evaluation_id: 0, total_score: 3.5, food_score: 4.0, service_score: 3.5, price_score: 3.0, atmosphere_score: 5.0, review: "JMT" },
+      average_evaluation: { food_score: 4.0, service_score: 3.5, price_score: 3.0, atmosphere_score: 5.0, review: "JMT" },
+    },
+  ],
+};
+const dummyList = Array.from({ length: 3 }, () => dummy);
 
 const SearchPage = () => {
   return (
     <div>
       <SearchInput />
-      <ul>
-        <MisigdoItem />
-        <MisigdoItem />
-        <MisigdoItem />
-      </ul>
+      <MisigdoList list={dummyList} />
     </div>
   )
 }
