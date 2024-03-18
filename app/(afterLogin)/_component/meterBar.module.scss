@@ -1,0 +1,49 @@
+.meter_bar {
+  display: flex;
+  flex: 1;
+  meter {
+    display: flex;
+    flex: 1;
+    &::-webkit-meter-bar{
+      height:20px;
+      background-color: #212121;
+      border-radius: 0;
+    } 
+
+  }
+
+  .average{
+    // 최적값 아래
+    &::-webkit-meter-even-less-good-value {
+      background-color: #FFA000;
+    }
+    // 최적값
+    &::-webkit-meter-optimum-value {
+      background-color: #FFA000;
+    }
+
+    // 최적값 근접
+    &::-webkit-meter-suboptimum-value {
+      background-color: #FFA000;
+    }
+  }
+  .target {
+    height: 20px;
+
+    // 최적값 아래
+    &::-webkit-meter-even-less-good-value {
+      background-color: #2DC770;
+    }
+    // 최적값
+    &::-webkit-meter-optimum-value {
+      background-color: #2DC770;
+    }
+
+    // 최적값 근접
+    &::-webkit-meter-suboptimum-value {
+      background-color: #2DC770;
+    }
+  }
+
+  
+}

@@ -62,17 +62,16 @@
       }
       .content_address{
         display:flex;
+        justify-content: space-between;
         font-size: 0.8em;
+        margin-bottom: 20px;
         div{
           display:flex;
-          justify-content: center;
-          flex:3;
           width:20px;
           font-size: 0.8em;
         }
         span{
           display:flex;
-          flex:9;
           font-size: 0.8em;
         }
       }
