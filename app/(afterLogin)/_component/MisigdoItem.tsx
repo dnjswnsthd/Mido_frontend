@@ -2,7 +2,10 @@ import Link from "next/link";
 import style from "./misigdoItem.module.scss";
 import ImageList from "./ImageList";
 import MeterBar from "./MeterBar";
-const MisigdoItem = () => {
+import { ResultDummy } from "../home/page";
+
+interface MisigdoItemProps {info: ResultDummy}
+const MisigdoItem = ({info}: MisigdoItemProps) => {
   const imgList = [
     "https://images.unsplash.com/photo-1602808180309-2e0c62986635?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "https://images.unsplash.com/photo-1583434987437-1b9dcbe44c9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
@@ -10,11 +13,12 @@ const MisigdoItem = () => {
   ];
   return (
     <li className={style.misigdo_item}>
+      <h1>{info.group_name}</h1>
       <div className={style.misigdo_top_area}>
         <div className={style.pioneer_wrap}>
           <div className={style.profile_image} />
           <p>
-            <span className={style.boss_name}>JuneHyung</span> <span className={style.member_name}>외 2명</span>
+            <span className={style.boss_name}>{info.boss_nickname}</span> <span className={style.member_name}>외 {info.pioneer_list.length-1}명</span>
           </p>
           <p className={style.write_date}>2month ago</p>
         </div>
@@ -24,53 +28,53 @@ const MisigdoItem = () => {
       </div>
       <div className={style.misigdo_bottom_area}>
         <section className={style.content_left_section}>
-          <ImageList images={imgList} />
+          <ImageList images={info.round[0].review_image} />
         </section>
         <section className={style.content_right_section}>
           <div className={style.content_title}>
-            <h3>대한 민족</h3>
-            <div>★★★★☆</div>
+            <h3>{info.round[0].restaurant_name}</h3>
+            <div>{info.round[0].evaluation.total_score}</div>
           </div>
           <div className={style.content_menu_row}>
-            <div>메뉴 : 족발, 족발</div>
-            <div>서브 메뉴 : 좌족발, 우족발</div>
+            <div>메뉴 : {info.round[0].main_menu_name}</div>
+            <div>서브 메뉴 : {info.round[0].side_menu_name}</div>
           </div>
           <div className={style.content_menu_row}>
-            <div>주류 : 테라, 참이슬</div>
-            <div>디저트 : 족발, 족발</div>
+            <div>주류 : {info.round[0].drink_name}</div>
+            <div>디저트 : {info.round[0].dessert_name}</div>
           </div>
           <div className={style.content_address}>
             <div>주소</div>
-            <span>서울특별시 구로구 구로동디지털로32나길 17-8</span>
+            <span> {info.round[0].restaurant_addr}</span>
           </div>
-          
+
           <ul className={style.content_review_chart_wrap}>
             <li className={style.content_review_chart_item}>
               <span>음식</span>
               <div className={style.content_review_chart}>
-                <MeterBar value={3} kind="average" />
-                <MeterBar value={4} kind="target" />
+                <MeterBar value={info.round[0].average_evaluation.food_score} kind="average" />
+                <MeterBar value={info.round[0].evaluation.food_score} kind="target" />
               </div>
             </li>
             <li className={style.content_review_chart_item}>
               <span>서비스</span>
               <div className={style.content_review_chart}>
-                <MeterBar value={2.5} kind="average" />
-                <MeterBar value={3.5} kind="target" />
+                <MeterBar value={info.round[0].average_evaluation.service_score} kind="average" />
+                <MeterBar value={info.round[0].evaluation.service_score} kind="target" />
               </div>
             </li>
             <li className={style.content_review_chart_item}>
               <span>가격</span>
               <div className={style.content_review_chart}>
-                <MeterBar value={4.0} kind="average" />
-                <MeterBar value={3} kind="target" />
+                <MeterBar value={info.round[0].average_evaluation.price_score} kind="average" />
+                <MeterBar value={info.round[0].evaluation.price_score} kind="target" />
               </div>
             </li>
             <li className={style.content_review_chart_item}>
-              <span>맛</span>
+              <span>분위기</span>
               <div className={style.content_review_chart}>
-                <MeterBar value={3.5} kind="average" />
-                <MeterBar value={5} kind="target" />
+                <MeterBar value={info.round[0].average_evaluation.atmosphere_score} kind="average" />
+                <MeterBar value={info.round[0].evaluation.atmosphere_score} kind="target" />
               </div>
             </li>
           </ul>
