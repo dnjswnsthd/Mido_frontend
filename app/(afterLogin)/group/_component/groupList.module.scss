@@ -2,8 +2,10 @@
   .group_list_item{
     display:flex;
     flex-direction: column;
-    border:1px solid #eee;
+    background-color:rgba(255,255,255,0.2);
+    
     margin: 8px 0;
+    padding: 8px;
     .top_area{
       display:flex;
       justify-content: space-between;
@@ -11,10 +13,16 @@
       .group_title{
         display:flex;
         align-items: center;
-        .pioneer_cnt span{
+        .pioneer_cnt {
+          display:flex;
+          justify-content: center;
+          align-items: center;
           font-size:0.8em;
+          margin-left:8px;
+          span{margin-top:4px;}
         }
       }
+
       .button_wrap{
         button{
           background:none;
@@ -24,15 +32,24 @@
         }
       }
     }
+
     .user_list{
       display:flex;
-      li{
+      .user_info{
+        display:flex;
+        max-width:100px;
+        flex-direction: column;
+        align-items: center;
         margin:0 8px; 
         &:first-child{
           margin-left:0;
         }
-      }
-      
+        .user_name{
+          display:flex;
+          flex:1;
+          margin-top:8px;
+        }
+      }      
     }
   }
 }

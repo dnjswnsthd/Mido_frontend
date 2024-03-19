@@ -31,3 +31,10 @@ a {
 ul,li,ol{
   list-style: none;;
 }
+
+.ellipsis{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
