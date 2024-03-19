@@ -12,6 +12,10 @@
     flex-grow:1;
     justify-content: center;
     align-items: center;
+    position:relative;
+    img{
+      object-fit: "contain"
+    }
   }
   .prev_button{
     width:20px;

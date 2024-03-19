@@ -17,7 +17,7 @@ const ImageList = ({images}: any) => {
     <ul className={style.image_list}>
       <div className={style.prev_button} onClick={prevImage}><MdiIcon path="mdiLessThan" size={20}/></div>
       <li className={style.image_item}>
-        <Image src={images[idx]} layout="intrinsic" alt={`Image${idx+1}`} width={600} height={400}/>
+        <Image src={images[idx]} alt={`Image${idx+1}`} priority fill sizes={'inherit inherit'} quality={75}/>
       </li>
       <div className={style.next_button} onClick={nextImage}>
         <MdiIcon path="mdiGreaterThan" size={20}/>

@@ -10,7 +10,7 @@ const Profile = ({url}: ProfileProps) => {
   return (
     url ? (
       <div className={style.profile_image}>
-        <Image src={profileImg} alt="profile"/>
+        <Image src={profileImg} alt="profile" priority/>
       </div>
     ) : (
       <div className={style.profile_image}>
