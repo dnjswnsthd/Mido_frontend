@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import style from "./imageList.module.scss";
 import Image from "next/image";
+import MdiIcon from "./MdiIcon";
 
 const ImageList = ({images}: any) => {
   const [idx, setIdx] = useState(0);
@@ -14,11 +15,13 @@ const ImageList = ({images}: any) => {
 
   return (
     <ul className={style.image_list}>
-      <div className={style.prev_button} onClick={prevImage}>&lt;</div>
+      <div className={style.prev_button} onClick={prevImage}><MdiIcon path="mdiLessThan" size={20}/></div>
       <li className={style.image_item}>
         <Image src={images[idx]} layout="intrinsic" alt={`Image${idx+1}`} width={600} height={400}/>
       </li>
-      <div className={style.next_button} onClick={nextImage}>&gt;</div>
+      <div className={style.next_button} onClick={nextImage}>
+        <MdiIcon path="mdiGreaterThan" size={20}/>
+      </div>
     </ul>
   )
 }

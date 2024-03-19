@@ -1,4 +1,3 @@
-import MisigdoItem from "../_component/MisigdoItem";
 import MisigdoList from "../_component/MisigdoList";
 import style from "./home.module.scss";
 
@@ -7,7 +6,11 @@ export interface Pioneer {
   pioneer_nickname: string; // 참가자 닉네임
   pioneer_image_url: string; // 참가자 프로필 사진
 }
-
+export interface Boss {
+  boss_id: string;
+  boss_nickname: string;
+  boss_image_url: string;
+}
 export interface RoundEvaluation {
   round_id?: number; // round id
   round_num?: number; // round 번호
@@ -36,21 +39,25 @@ export interface Round {
 }
 export interface ResultDummy {
   group_name: string; // 그룹 이름
+  metting_date: string; // date YYYY-MM-DD
   pioneer_list: Pioneer[]; // 참여자 목록
-  boss_id: string; // 그룹장 id
-  boss_nickname: string; // 그룹장 이름
+  boss: Boss;
   round: Round[]; // round 정보
 }
 export type DummyList = ResultDummy[];
-const dummy = {
+const dummy:ResultDummy = {
   group_name: "구디 대한족발 팟",
+  metting_date: "2024-03-19 13:25:00",
   pioneer_list: [
     { pioneer_id: "user00", pioneer_nickname: "SONG", pioneer_image_url: "" },
     { pioneer_id: "user01", pioneer_nickname: "JuneHyung", pioneer_image_url: "" },
     { pioneer_id: "user02", pioneer_nickname: "Soon", pioneer_image_url: "" },
   ],
-  boss_id: "user01",
-  boss_nickname: "JuneHyung",
+  boss: {
+    boss_id: "user01",
+    boss_nickname: "JuneHyung",
+    boss_image_url: 'public/phantom.jpg',
+  },
   round: [
     {
       round_id: 0,
@@ -105,7 +112,7 @@ const dummy = {
     },
   ],
 };
-const dummyList = Array.from({ length: 3 }, () => dummy);
+const dummyList: DummyList = Array.from({ length: 3 }, () => dummy);
 const Home = () => {
   return (
     <div className={style.home_page_container}>

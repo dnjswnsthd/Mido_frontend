@@ -3,31 +3,41 @@ import style from "./misigdoItem.module.scss";
 import ImageList from "./ImageList";
 import MeterBar from "./MeterBar";
 import { ResultDummy } from "../home/page";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/ko";
+import Profile from "./Profile";
+dayjs.locale("ko");
+dayjs.extend(relativeTime);
 
-interface MisigdoItemProps {info: ResultDummy}
-const MisigdoItem = ({info}: MisigdoItemProps) => {
-  const imgList = [
-    "https://images.unsplash.com/photo-1602808180309-2e0c62986635?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "https://images.unsplash.com/photo-1583434987437-1b9dcbe44c9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "https://images.unsplash.com/photo-1603052227529-e8ed43c7af99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-  ];
+interface MisigdoItemProps {
+  info: ResultDummy;
+}
+const MisigdoItem = ({ info }: MisigdoItemProps) => {
   return (
     <li className={style.misigdo_item}>
-      <h1>{info.group_name}</h1>
       <div className={style.misigdo_top_area}>
+        <h1 className={style.title_wrap}>
+          {info.group_name}
+          <Link href="/detail/id" className={style.more_button}>
+            더보기
+          </Link>
+        </h1>
         <div className={style.pioneer_wrap}>
-          <div className={style.profile_image} />
-          <p>
-            <span className={style.boss_name}>{info.boss_nickname}</span> <span className={style.member_name}>외 {info.pioneer_list.length-1}명</span>
+          {/* {info.boss.boss_id ? <div className={style.profile_image}><Image src={info.boss.boss_image_url} alt="profile" /></div> : <MdiIcon path="mdiAccountCircle" /> } */}
+          <Profile url={info.boss.boss_image_url} />
+          
+          <p className={style.boss_wrap}>
+            <span className={style.boss_name}>{info.boss.boss_nickname}</span> <span className={style.member_name}>외 {info.pioneer_list.length - 1}명</span>
           </p>
-          <p className={style.write_date}>2month ago</p>
+          <p className={style.write_date}>{dayjs(info.metting_date).fromNow()}</p>
         </div>
-        <Link href="/detail/id" className={style.more_button}>
-          더보기
-        </Link>
       </div>
       <div className={style.misigdo_bottom_area}>
         <section className={style.content_left_section}>
+          <ul className={style.content_round_list}>
+            {info.round.map((_,i)=><li key={`${_.round_id}${_.round_num}${i}`} className={i===1 ? `${style.content_round_item} ${style.active_item}` : style.content_round_item}>{i+1}차</li>)}
+          </ul>
           <ImageList images={info.round[0].review_image} />
         </section>
         <section className={style.content_right_section}>
@@ -36,16 +46,26 @@ const MisigdoItem = ({info}: MisigdoItemProps) => {
             <div>{info.round[0].evaluation.total_score}</div>
           </div>
           <div className={style.content_menu_row}>
-            <div>메뉴 : {info.round[0].main_menu_name}</div>
-            <div>서브 메뉴 : {info.round[0].side_menu_name}</div>
+            <p className={style.content_menu_wrap}>
+              <span className={style.content_menu_label}>메인 : </span> <span className={style.content_menu_value}>{info.round[0].main_menu_name}</span>
+            </p>
+            <p className={style.content_menu_wrap}>
+              <span className={style.content_menu_label}>서브 : </span> <span className={style.content_menu_value}>{info.round[0].side_menu_name}</span>
+            </p>
           </div>
           <div className={style.content_menu_row}>
-            <div>주류 : {info.round[0].drink_name}</div>
-            <div>디저트 : {info.round[0].dessert_name}</div>
+            <p className={style.content_menu_wrap}>
+              <span className={style.content_menu_label}>주류 : </span>
+              <span className={style.content_menu_value}>{info.round[0].drink_name}</span>
+            </p>
+            <p className={style.content_menu_wrap}>
+              <span className={style.content_menu_label}>디저트 : </span>
+              <span className={style.content_menu_value}>{info.round[0].dessert_name}</span>
+            </p>
           </div>
           <div className={style.content_address}>
-            <div>주소</div>
-            <span> {info.round[0].restaurant_addr}</span>
+            <span className={style.content_address_label}>주소 : </span>
+            <span className={style.content_address_value}> {info.round[0].restaurant_addr}</span>
           </div>
 
           <ul className={style.content_review_chart_wrap}>

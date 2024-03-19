@@ -1,0 +1,22 @@
+.profile_image {
+  width:24px; height:24px;
+  background-clip: content-box, border-box;
+  padding:2px;
+  background-image: linear-gradient(#141517, #141517), linear-gradient(180deg, #00ffa3, #027f80);
+  border-radius:50%;
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  margin-right: 4px;
+  img{
+    width:inherit;
+    height:inherit;
+    border-radius: inherit;
+    transform: scale(0.9);
+    margin-top: -2px;
+  }
+  svg{
+    margin-top: -2px;
+    margin-left: 0.5px;
+  }
+}

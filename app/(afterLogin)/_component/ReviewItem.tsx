@@ -1,4 +1,5 @@
 import ImageList from "./ImageList";
+import Profile from "./Profile";
 import style from "./review.module.scss";
 const ReviewItem = () =>{
   const imgList = [
@@ -9,7 +10,7 @@ const ReviewItem = () =>{
   return (
     <li className={style.review_item}>
       <div className={style.top_area}>
-        <div className={style.profile} />
+        <Profile />
         <p className={style.pioneer_name}>JuneHyung</p>
       </div>
       <div className={style.middle_area}>

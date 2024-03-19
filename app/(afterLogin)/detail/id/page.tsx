@@ -1,4 +1,5 @@
 import ImageList from "../../_component/ImageList";
+import Profile from "../../_component/Profile";
 import ReviewList from "../../_component/ReviewList";
 import style from "./misigdoDetail.module.scss";
 const imgList = [
@@ -11,7 +12,7 @@ const MisigdoDetail = () => {
     <div className={style.misigdo_detail_page}>
       <ImageList images={imgList}/>
       <div className={style.top_area}>
-        <div className={style.profile}></div>
+        <Profile />
         <p>
           <span className={style.pioneer_name}>JuneHyung</span> <span className={style.other_name}>외 2명</span>
         </p>
