@@ -17,20 +17,18 @@
       object-fit: "contain"
     }
   }
-  .prev_button{
+  .prev_button, .next_button{
     width:20px;
     height:20px;
     position:absolute;
-    left:0;
     top:50%;
     margin-top:-10px;
+    z-index:2;
+  }
+  .prev_button{
+    left:0;
   }
   .next_button{
-    width:20px;
-    height:20px;
-    position:absolute;
     right:0;
-    top:50%;
-    margin-top:-10px;
   }
 }
