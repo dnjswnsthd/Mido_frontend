@@ -9,7 +9,7 @@
   "boss": {
     "boss_id": "user01",
     "boss_nickname": "JuneHyung",
-    "boss_image_url": "public/phantom.jpg"
+    "boss_image_url": "public/image/phantom.jpg"
   },
   "round": [
     {

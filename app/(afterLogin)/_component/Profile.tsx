@@ -1,7 +1,7 @@
 import Image from "next/image";
 import MdiIcon from "./MdiIcon";
 import style from "./profile.module.scss";
-import profileImg from "/public/phantom.jpg";
+import profileImg from "/public/image/phantom.jpg";
 interface ProfileProps {
   url?:string;
 }

@@ -28,9 +28,22 @@
         display:flex;
         justify-content: center;
         align-items: center;
-        border:1px solid #fff;
         width:60px;
         height:60px;
+        background-size: cover;
+        background-position: center;
+        margin: 0 0.25rem;
+        &:first-child{
+          background-image: url('../../../public/image/kakao.jpg');
+        }
+        &:nth-child(2){
+          background-image: url('../../../public/image/naver.jpg');
+        }
+        &:last-child{
+          background-image: url('../../../public/image/google.jpg');
+        }
+
+        a{width:100%;height:100%;}
       }
     }
   }
