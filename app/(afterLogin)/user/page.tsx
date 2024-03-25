@@ -1,3 +1,4 @@
+import Profile from "../_component/Profile";
 import UserGroupItem from "./_component/UserGroupItem";
 import style from "./userPage.module.scss";
 
@@ -10,7 +11,7 @@ const UserPage = () => {
       </h2>
       <div className={style.profile_wrap}>
         <div className={style.left_area}>
-          <div className={style.profile_img}></div>
+          <Profile className={style.profile_img} size={52}></Profile>
           <div>
             <p>가로등</p>
             <p>cjh951114@naver.com</p>

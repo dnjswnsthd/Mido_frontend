@@ -1,13 +1,14 @@
+import Profile from "../../_component/Profile";
 import style from "./userGroupItem.module.scss";
 
 const UserGroupItem = () => {
   return (
     <li className={style.group_tab_list_item}>
       <div className={style.top_area}>
-        <div className={style.profile}></div>
-        <div className={style.profile}></div>
-        <div className={style.profile}></div>
-        <div className={style.profile}></div>
+        <Profile className={style.profile} size={36} />
+        <Profile className={style.profile} size={36} />
+        <Profile className={style.profile} size={36} />
+        <Profile className={style.profile} size={36} />
       </div>
       <div className={style.bottom_area}>
         <h3>title</h3>
@@ -15,7 +16,7 @@ const UserGroupItem = () => {
         <button>그룹나가기</button>
       </div>
     </li>
-  )
-}
+  );
+};
 
 export default UserGroupItem;

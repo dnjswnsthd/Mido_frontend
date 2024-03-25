@@ -1,15 +1,14 @@
 .map_page_container{
   display:flex;
   justify-content: space-between;
-  flex:1;
+  flex:11;
   flex-direction: column;
   border: 1px solid #eee;
-
+  height:100%;
   .map_content{
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    height:inherit;
     padding: 0.8rem;
   }
   .show_search_list{
