@@ -1,0 +1,143 @@
+// FF97D5 - pink
+@keyframes slideIn {
+  100% {
+    opacity: 1; /* 등장할 때 투명도를 1로 설정 */
+    transform: translateY(0); /* 위로 이동하여 등장 */
+  }
+}
+
+@keyframes stampIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes leftArrowDown {
+  from {
+    transform: rotate(-15deg) translateY(-40px);
+  }
+  to {
+    transform: rotate(-15deg) translateY(10px);
+  }
+}
+@keyframes centerArrowDown {
+  from {
+    transform: rotate(0) translateY(-40px);
+  }
+  to {
+    transform: rotate(0) translateY(0);
+  }
+}
+@keyframes rightArrowDown {
+  from {
+    transform: rotate(15deg) translateY(-40px);
+  }
+  to {
+    transform: rotate(15deg) translateY(10px);
+  }
+}
+
+.logo_container {
+  display: flex;
+  flex-direction: column;
+  .active_box {
+    display: block;
+  }
+  // display:flex;
+  .start_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .start_logo_image {
+      display:flex;
+    }
+    .start_title {
+      color: #ff97d5;
+      text-align: center;
+      text-shadow: 0 0 8px rgb(218, 7, 133), 0 0 8px rgb(218, 7, 133);
+      .title_letter {
+        font-size: 60px;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: stampIn 0.5s ease-in-out forwards;
+      }
+    }
+
+    .hash_tag_list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .hash_tag {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        text-shadow: 0 0 4px rgba(255, 151, 213, 1), 0 0 4px rgba(255, 151, 213, 1);
+        margin: 8px;
+        .letter {
+          font-size: 20px;
+          opacity: 0;
+          transform: translateY(100%);
+          animation: slideIn 0.5s forwards;
+        }
+      }
+    }
+  }
+  .end_box {
+    .end_title {
+      color: #ff97d5;
+      text-shadow: 0 0 8px rgb(218, 7, 133), 0 0 8px rgb(218, 7, 133);
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .arrow_list {
+      display: flex;
+      justify-content: center;
+      .arrow_down {
+        position: relative;
+        width: 30px; /* 막대의 너비 */
+        height: 120px; /* 막대의 높이 */
+        margin: 0 20px;
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent; /* 왼쪽 변을 투명으로 설정 */
+          border-right: 10px solid transparent; /* 오른쪽 변을 투명으로 설정 */
+          border-top: 20px solid #fd797a; /* 위쪽 변을 검은색으로 설정 */
+          transform: translateX(-50%); /* 가운데 정렬을 위해 X 축으로 이동 */
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0px; /* 삼각형 아래쪽에서부터 막대의 시작점까지의 거리 */
+          left: 50%;
+          width: 6px; /* 막대의 너비 */
+          height: calc(100% - 20px); /* 막대의 높이 */
+          background-color: #fd797a; /* 막대의 색상 */
+          transform: translateX(-50%); /* 가운데 정렬을 위해 X 축으로 이동 */
+        }
+        animation: centerArrowDown 1s infinite alternate;
+        &:first-child {
+          animation: leftArrowDown 1s infinite alternate;
+          transform: rotate(-15deg);
+        }
+        &:last-child {
+          animation: rightArrowDown 1s infinite alternate;
+          transform: rotate(15deg);
+        }
+      }
+    }
+  }
+}
