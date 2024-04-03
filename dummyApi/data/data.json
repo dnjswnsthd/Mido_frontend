@@ -1,4 +1,5 @@
 {
+  "group_id": "group_id00",
   "group_name": "구디 대한족발 팟",
   "metting_date": "2024-03-19 13:25:00",
   "pioneer_list": [
@@ -15,6 +16,7 @@
     {
       "round_id": 0,
       "round_num": 0,
+      "restaurant_id": "restaurant00",
       "restaurant_name": "대한족발",
       "restaurant_addr": "서울특별시 구로구 구로동 디지털로32나길17-8",
       "main_menu_name": "족발, 족발",
@@ -32,6 +34,7 @@
     {
       "round_id": 0,
       "round_num": 0,
+      "restaurant_id": "restaurant01",
       "restaurant_name": "대한족발",
       "restaurant_addr": "서울특별시 구로구 구로동 디지털로32나길17-8",
       "main_menu_name": "족발, 족발",
@@ -49,6 +52,7 @@
     {
       "round_id": 0,
       "round_num": 0,
+      "restaurant_id": "restaurant02",
       "restaurant_name": "대한족발",
       "restaurant_addr": "서울특별시 구로구 구로동 디지털로32나길17-8",
       "main_menu_name": "족발, 족발",

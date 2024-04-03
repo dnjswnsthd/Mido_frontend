@@ -1,8 +1,9 @@
-exports.getLogin = async (req, res) => {
-  const {userId, userPw} = req.body;
+exports.postLogin = async (req, res) => {
+  const {type} = req.body;
+  console.log(type)
   try{
-    const userInfo = {id: userId, name: '준형갓'};
-    return res.status(200).json(userInfo);
+    const userInfo = {type, userId: 'cjh951114', name: '준형갓'};
+    return res.status(200).json({type, userId: 'cjh951114', name: '준형갓'});
   }catch(err){
     throw err;
   }

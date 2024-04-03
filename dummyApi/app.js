@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
-
+const cors = require('cors');
 const app = express();
 
 app.set('port', process.env.PORT || 3001);
@@ -10,11 +10,16 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-const misigdoRoutes = require('./routes/misigdo');
+// cors
+app.use(cors({origin: '*'}))
+
 const userRoutes = require('./routes/user');
+// const misigdoRoutes = require('./routes/misigdo');
+// const mapRoutes = require('./routes/map');
 
 app.use("/api/user", userRoutes);
-app.use("/api/misigdo", misigdoRoutes);
+// app.use("/api/misigdo", misigdoRoutes);
+// app.use("/api/map", mapRoutes);
 
 app.use((req, res, next)=>{
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`)
