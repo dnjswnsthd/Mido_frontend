@@ -14,7 +14,7 @@
   },
   "round": [
     {
-      "round_id": 0,
+      "round_id": "group_id00_restaurant00",
       "round_num": 0,
       "restaurant_id": "restaurant00",
       "restaurant_name": "대한족발",
@@ -23,16 +23,17 @@
       "side_menu_name": "좌족발, 우족발",
       "drink_name": "테라, 참이슬",
       "dessert_name": "족발",
+      "cost": 155000,
       "review_image": [
         "https://images.unsplash.com/photo-1602808180309-2e0c62986635?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
         "https://images.unsplash.com/photo-1583434987437-1b9dcbe44c9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
         "https://images.unsplash.com/photo-1603052227529-e8ed43c7af99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
       ],
-      "evaluation": { "round_id": 0, "round_num": 0, "round_evaluation_id": 0, "total_score": 3.0, "food_score": 3.0, "service_score": 3.5, "price_score": 2.0, "atmosphere_score": 5.0, "review": "JMT" },
+      "evaluation": { "round_id": "group_id00_restaurant00", "round_num": 0, "round_evaluation_id": 0, "total_score": 3.0, "food_score": 3.0, "service_score": 3.5, "price_score": 2.0, "atmosphere_score": 5.0, "review": "JMT" },
       "average_evaluation": { "food_score": 4.0, "service_score": 4.0, "price_score": 3.0, "atmosphere_score": 4.0, "review": "JMT" }
     },
     {
-      "round_id": 0,
+      "round_id": "group_id00_restaurant01",
       "round_num": 0,
       "restaurant_id": "restaurant01",
       "restaurant_name": "대한족발",
@@ -46,11 +47,11 @@
         "https://images.unsplash.com/photo-1583434987437-1b9dcbe44c9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
         "https://images.unsplash.com/photo-1603052227529-e8ed43c7af99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
       ],
-      "evaluation": { "round_id": 0, "round_num": 0, "round_evaluation_id": 0, "total_score": 3.5, "food_score": 4.0, "service_score": 3.5, "price_score": 3.0, "atmosphere_score": 5.0, "review": "JMT" },
+      "evaluation": { "round_id":  "group_id00_restaurant01", "round_num": 1, "round_evaluation_id": 0, "total_score": 3.5, "food_score": 4.0, "service_score": 3.5, "price_score": 3.0, "atmosphere_score": 5.0, "review": "JMT" },
       "average_evaluation": { "food_score": 4.0, "service_score": 3.5, "price_score": 3.0, "atmosphere_score": 5.0, "review": "JMT" }
     },
     {
-      "round_id": 0,
+      "round_id": "group_id00_restaurant02",
       "round_num": 0,
       "restaurant_id": "restaurant02",
       "restaurant_name": "대한족발",
@@ -64,7 +65,7 @@
         "https://images.unsplash.com/photo-1583434987437-1b9dcbe44c9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
         "https://images.unsplash.com/photo-1603052227529-e8ed43c7af99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
       ],
-      "evaluation": { "round_id": 0, "round_num": 0, "round_evaluation_id": 0, "total_score": 3.5, "food_score": 4.0, "service_score": 3.5, "price_score": 3.0, "atmosphere_score": 5.0, "review": "JMT" },
+      "evaluation": { "round_id":  "group_id00_restaurant02", "round_num": 2, "round_evaluation_id": 0, "total_score": 3.5, "food_score": 4.0, "service_score": 3.5, "price_score": 3.0, "atmosphere_score": 5.0, "review": "JMT" },
       "average_evaluation": { "food_score": 4.0, "service_score": 3.5, "price_score": 3.0, "atmosphere_score": 5.0, "review": "JMT" }
     }
   ]

@@ -14,11 +14,11 @@ app.use(express.urlencoded({extended: false}));
 app.use(cors({origin: '*'}))
 
 const userRoutes = require('./routes/user');
-// const misigdoRoutes = require('./routes/misigdo');
+const misigdoRoutes = require('./routes/misigdo');
 // const mapRoutes = require('./routes/map');
 
 app.use("/api/user", userRoutes);
-// app.use("/api/misigdo", misigdoRoutes);
+app.use("/api/misigdo", misigdoRoutes);
 // app.use("/api/map", mapRoutes);
 
 app.use((req, res, next)=>{

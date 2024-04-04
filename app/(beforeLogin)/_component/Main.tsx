@@ -14,9 +14,10 @@ const Main = () => {
         body: JSON.stringify({type})
       });
 
-      // const data = await response.json();
-
+      
       if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem('userInfo', JSON.stringify(data));
         router.replace("/home");
       } else {
         console.log("err");

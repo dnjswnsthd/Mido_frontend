@@ -1,3 +1,5 @@
+'use client';
+
 import Link from "next/link";
 import style from "./misigdoItem.module.scss";
 import ImageList from "./ImageList";
@@ -7,6 +9,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/ko";
 import Profile from "./Profile";
+import { useRouter } from "next/navigation";
 dayjs.locale("ko");
 dayjs.extend(relativeTime);
 
@@ -14,14 +17,16 @@ interface MisigdoItemProps {
   info: ResultDummy;
 }
 const MisigdoItem = ({ info }: MisigdoItemProps) => {
+  const router = useRouter();
+  const handleMoreButton = () => {
+    router.push(`/detail/${info.group_id}`)
+  }
   return (
     <li className={style.misigdo_item}>
       <div className={style.misigdo_top_area}>
         <h1 className={style.title_wrap}>
           {info.group_name}
-          <Link href="/detail/id" className={style.more_button}>
-            더보기
-          </Link>
+          <button className={style.more_button} onClick={()=>handleMoreButton()}> 더보기 </button>
         </h1>
         <div className={style.pioneer_wrap}>
           {/* {info.boss.boss_id ? <div className={style.profile_image}><Image src={info.boss.boss_image_url} alt="profile" /></div> : <MdiIcon path="mdiAccountCircle" /> } */}

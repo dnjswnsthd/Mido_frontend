@@ -1,9 +1,13 @@
 const dummyMisigdoItem = require('../data/data.json');
+const dummyMisigdoList = Array.from({ length: 20 }, () => dummyMisigdoItem).map((el, idx)=>{return {...el, group_id: `group_id${idx}`}});
 
 exports.getMisigdoListById = async (req, res) => {
-  const {userId} = req.query;
+  const {userId, page} = req.query;
+  const limit = 5;
+
   try{
-    const itemInfo = {data: dummyMisigdoItem};
+    const itemInfo = {data: dummyMisigdoList.slice((Number(page)-1)*limit, limit)};
+    console.log(itemInfo)
     return res.status(200).json(itemInfo);
   }catch(err){
     throw err;
@@ -12,14 +16,17 @@ exports.getMisigdoListById = async (req, res) => {
 exports.getMisigdoItemByMisigdoId = async (req, res) => {
   const {userId, groupId} = req.query;
   try{
-
+    const target = dummyMisigdoList.find((el)=>el.group_id===groupId);
+    console.log(target)
     // 더보기 선택한 groupId 내용 조회 디테일 
-    const itemInfo = {data: dummyMisigdoItem};
+    const itemInfo = {data: target};
     return res.status(200).json(itemInfo);
   }catch(err){
     throw err;
   }
 }
+
+
 exports.postMisigdoItemReview = async (req, res) => {
   const {userId, groupId, roundId, evaluation, review_image} = req.body;
   try{
