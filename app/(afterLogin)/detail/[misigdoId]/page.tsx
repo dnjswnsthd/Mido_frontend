@@ -46,7 +46,7 @@ const MisigdoDetail = () => {
 
   return (
     <div className={style.misigdo_detail_page}>
-      {info.round && <MisigdoDetailInfo r={info.round[activeRound]} round_cnt={info.round.length} boss={info.boss} metting_date={dayjs(info.metting_date).fromNow()} />}
+      {info.round && <MisigdoDetailInfo r={info.round[activeRound]} round_cnt={info.round.length} boss={info.boss} metting_date={dayjs(info.metting_date).fromNow()} pioneer_cnt={info.pioneer_list.length-1}/>}
     </div>
   );
 };

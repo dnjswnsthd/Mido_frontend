@@ -9,16 +9,17 @@ export type MisigdoDetailInfoProps = {
   round_cnt: number;
   boss: ResultDummy["boss"];
   metting_date: ResultDummy["metting_date"];
+  pioneer_cnt: number;
 };
 
-const MisigdoDetailInfo = ({ r, round_cnt, boss, metting_date }: MisigdoDetailInfoProps) => {
+const MisigdoDetailInfo = ({ r, round_cnt, boss, metting_date, pioneer_cnt }: MisigdoDetailInfoProps) => {
   return (
     <>
       <ImageList images={r.review_image} />
       <div className={style.top_area}>
         <Profile />
         <p>
-          <span className={style.pioneer_name}>{boss.boss_nickname}</span> <span className={style.other_name}>외 2명</span>
+          <span className={style.pioneer_name}>{boss.boss_nickname}</span> {pioneer_cnt > 0 && <span className={style.other_name}>외 {pioneer_cnt}명</span>}
         </p>
         <p className={style.write_date}>{metting_date}</p>
       </div>

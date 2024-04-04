@@ -8,7 +8,7 @@ const MisigdoList = ({list}: MisigdoListProps) => {
     <ul className={style.misigdo_list}>
       {
         list.map((misigdo)=>{
-          return <MisigdoItem info={misigdo} key={misigdo.group_name}/>
+          return <MisigdoItem info={misigdo} key={`${misigdo.group_id}${misigdo.group_name}`}/>
         })
       }
     </ul>

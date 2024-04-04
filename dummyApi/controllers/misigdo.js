@@ -1,5 +1,5 @@
-const dummyMisigdoItem = require('../data/data.json');
-const dummyMisigdoList = Array.from({ length: 20 }, () => dummyMisigdoItem).map((el, idx)=>{return {...el, group_id: `group_id${idx}`}});
+const dummyMisigdoList = require('../data/data.json');
+
 
 exports.getMisigdoListById = async (req, res) => {
   const {userId, page} = req.query;
