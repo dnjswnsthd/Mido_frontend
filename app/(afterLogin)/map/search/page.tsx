@@ -1,15 +1,19 @@
+'use client';
+import { useState } from "react";
 import MisigdoList from "../../_component/MisigdoList";
 import SearchInput from "../../_component/SearchInput";
 
 
 const SearchPage = () => {
-  const dummy = require('/public/data.json');
-  const dummyList = Array.from({ length: 3 }, () => dummy);
+  const [keyword, setKeyword] = useState('');
+  const handleClick = async () => {
+    return ;
+  }
 
   return (
     <div>
-      <SearchInput />
-      <MisigdoList list={dummyList} />
+      <SearchInput value={keyword} handleValue={setKeyword} onClick={handleClick} />
+      <MisigdoList list={[]} />
     </div>
   )
 }

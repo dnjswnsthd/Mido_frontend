@@ -5,14 +5,17 @@
   flex-direction: column;
   border: 1px solid #eee;
   height:100%;
+  
   .map_content{
     display:flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 0.8rem;
+    z-index:99;
   }
   .show_search_list{
     display:flex;
+    z-index:99;
     height:40px;
     border-radius: 5px 5px 0 0;
     border: 1px solid #2DC770;
@@ -20,5 +23,10 @@
     align-items: center;
     padding:0.8rem;
     color:#212121;
+  }
+  .map_box{
+    display:flex;
+    height:500px;
+    border: 1px solid red;
   }
 }

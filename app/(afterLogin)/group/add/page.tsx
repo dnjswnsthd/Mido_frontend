@@ -6,7 +6,10 @@ import SearchInput from "../../_component/SearchInput";
 import MdiIcon from "../../_component/MdiIcon";
 const GroupAddPage = () => {
   const [list, setList] = useState<Number[]>([]);
-
+  const [keyword, setKeyword] = useState("");
+  const handleClick = async () => {
+    return;
+  };
   return (
     <div className={style.add_group_page}>
       <div className={style.top_area}>
@@ -17,7 +20,7 @@ const GroupAddPage = () => {
         </div>
       </div>
       <div className={style.search_area}>
-        <SearchInput />
+        <SearchInput value={keyword} handleValue={setKeyword} onClick={handleClick} />
       </div>
 
       <ul className={style.search_result_list}>

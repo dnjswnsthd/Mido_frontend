@@ -1,13 +1,24 @@
-import { Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import style from "./searchInput.module.scss";
 import MdiIcon from "./MdiIcon";
-const SearchInput = ({isSearch, onClick}: {isSearch?: boolean, onClick?: Dispatch<SetStateAction<boolean>>}) => {
+
+type SearchInputProps = {
+  value?: string;
+  handleValue?: Dispatch<SetStateAction<string>>;
+  onClick?: ()=>Promise<void>;
+}
+
+const SearchInput = ({value, handleValue, onClick}: SearchInputProps) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    if(handleValue) handleValue(val);
+  }
   return (
     <div className={style.search_input_wrap}>
-      <input className={style.search_input}/>
+      <input className={style.search_input} onChange={onChange} value={value}/>
       {
       onClick 
-      ? <button className={style.search_button} onClick={()=>onClick(!isSearch)}>
+      ? <button className={style.search_button} onClick={()=>onClick()}>
         <MdiIcon path={"mdiMagnify"} color={'#2DC770'}/>
       </button> 
       : <button className={style.search_button}>
