@@ -10,8 +10,10 @@ type SearchInputProps = {
 
 const SearchInput = ({value, handleValue, onClick}: SearchInputProps) => {
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
-    if(handleValue) handleValue(val);
+    
+    if(handleValue) handleValue(e.target.value);
+    console.log(2, value);
+    
   }
   return (
     <div className={style.search_input_wrap}>
