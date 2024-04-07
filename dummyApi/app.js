@@ -16,10 +16,12 @@ app.use(cors({origin: '*'}))
 const userRoutes = require('./routes/user');
 const misigdoRoutes = require('./routes/misigdo');
 const mapRoutes = require('./routes/map');
+const groupRoutes = require('./routes/group');
 
 app.use("/api/user", userRoutes);
 app.use("/api/misigdo", misigdoRoutes);
 app.use("/api/map", mapRoutes);
+app.use("/api/group", groupRoutes);
 
 app.use((req, res, next)=>{
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`)

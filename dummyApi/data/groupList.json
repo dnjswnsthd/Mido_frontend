@@ -1,0 +1,63 @@
+[
+  {
+    "group_id": "group_id00",
+    "group_name": "구디 대한족발 팟",
+    "metting_date": "2024-03-19 13:25:00",
+    "pioneer_list": [
+      {
+        "pioneer_id": "user00",
+        "pioneer_nickname": "SONG",
+        "pioneer_image_url": ""
+      },
+      {
+        "pioneer_id": "user01",
+        "pioneer_nickname": "JuneHyung",
+        "pioneer_image_url": ""
+      },
+      {
+        "pioneer_id": "user02",
+        "pioneer_nickname": "Soon",
+        "pioneer_image_url": ""
+      }
+    ],
+    "boss": {
+      "boss_id": "user01",
+      "boss_nickname": "JuneHyung",
+      "boss_image_url": "public/image/phantom.jpg"
+    }
+  },
+  {
+    "group_id": "group_id01",
+    "group_name": "선유도 온수반 팟",
+    "metting_date": "2024-03-19 13:25:00",
+    "pioneer_list": [
+      {
+        "pioneer_id": "user02",
+        "pioneer_nickname": "Soon",
+        "pioneer_image_url": ""
+      }
+    ],
+    "boss": {
+      "boss_id": "user02",
+      "boss_nickname": "Soon",
+      "boss_image_url": ""
+    }
+  },
+  {
+    "group_id": "group_id02",
+    "group_name": "신촌 홍대개미 팟",
+    "metting_date": "2024-03-19 13:25:00",
+    "pioneer_list": [
+      {
+        "pioneer_id": "user02",
+        "pioneer_nickname": "Soon",
+        "pioneer_image_url": ""
+      }
+    ],
+    "boss": {
+      "boss_id": "user02",
+      "boss_nickname": "Soon",
+      "boss_image_url": ""
+    }
+  }
+]
