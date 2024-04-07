@@ -1,8 +1,43 @@
+'use client';
+import { useCallback, useEffect, useState } from "react";
 import Profile from "../_component/Profile";
-import UserGroupItem from "./_component/UserGroupItem";
 import style from "./userPage.module.scss";
+import UserGroupList from "./_component/UserGroupList";
+import { GroupInfo } from "../group/page";
 
 const UserPage = () => {
+  const [groupList, setGroupList] = useState<GroupInfo[]>([]);
+  const [page, setPage] = useState(0);
+
+
+  const getGroupList =useCallback( async () => {
+    try {
+      const { userId } = JSON.parse(localStorage.getItem("userInfo") as string);
+      const queryParams = new URLSearchParams();
+      queryParams.append("userId", userId);
+      queryParams.append("page", page.toString());
+      
+      const response = await fetch(`http://localhost:3001/api/group/list?${queryParams}`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", mode: "no-cors" },
+      });
+      
+      if (response.ok) {
+        const { data } = await response.json();
+        setGroupList(data);
+      } else {
+        
+        console.log("err");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  },[ page]);
+
+  useEffect(()=>{
+    getGroupList();
+  },[])
+
   return (
     <div className={style.user_page}>
       <h2 className={style.user_page_title}>
@@ -26,12 +61,7 @@ const UserPage = () => {
           <li>참여 그룹</li>
           <li>요청 대기</li>
         </ul>
-        <ul className={style.group_tab_list}>
-          <UserGroupItem />
-          <UserGroupItem />
-          <UserGroupItem />
-          <UserGroupItem />
-        </ul>
+        <UserGroupList list={groupList}/>
         <div className={style.pagenation_bar}>
           1
         </div>
