@@ -1,0 +1,45 @@
+.modal_outter_box{
+  background-color:rgba(0,0,0,0.5);
+  width:100%;
+  min-height:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  top:0;
+  left:0;
+  .image_list{
+    display:flex;
+    flex:1;
+    overflow:hidden;
+    position:relative;
+    height:inherit;
+    min-height:200px;
+    max-height:400px;
+    background-color: rgba(0,0,0,0.7);
+    .image_item{
+      display:flex;
+      flex-grow:1;
+      justify-content: center;
+      align-items: center;
+      position:relative;
+      img{
+        object-fit: "contain"
+      }
+    }
+    .prev_button, .next_button{
+      width:20px;
+      height:20px;
+      position:absolute;
+      top:50%;
+      margin-top:-10px;
+      z-index:2;
+    }
+    .prev_button{
+      left:0;
+    }
+    .next_button{
+      right:0;
+    }
+  }
+}
