@@ -1,13 +1,11 @@
 "use client";
 
 import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
-import style from "./../map.module.scss";
-import { Round } from "../../home/page";
+import { useMapStore } from "@/app/store/map";
 
-const KakaoMap = ({ className, markList, children }: { className: string; markList?: Round[]; children?: ReactNode }) => {
+const KakaoMap = ({ className, children }: { className: string; children?: ReactNode }) => {
   const mapRef = useRef<HTMLDivElement>(null);
-
-
+  const mapStore = useMapStore();
   const initMap = useCallback(() => {
     if (mapRef.current) {
       const { kakao } = window as any;
@@ -19,13 +17,13 @@ const KakaoMap = ({ className, markList, children }: { className: string; markLi
         };
         const map = new kakao.maps.Map(mapRef.current, options);
 
-        if (markList && markList.length !== 0) {
+        if (mapStore.markList && mapStore.markList.length !== 0) {
           const { kakao } = window as any;
-          console.log(markList)
+          // console.log(mapStore.markList)
           // geocoder로 주소 찾기.
           const geocoder = new kakao.maps.services.Geocoder();
           const bounds = new kakao.maps.LatLngBounds();
-          for (const info of markList) {
+          for (const info of mapStore.markList) {
             const address = info.restaurant_addr;
     
             geocoder.addressSearch(address, (result: any, status: any) => {
@@ -54,7 +52,7 @@ const KakaoMap = ({ className, markList, children }: { className: string; markLi
         }
       });
     }
-  }, [markList]);
+  }, [mapStore.markList]);
 
   useEffect(() => {
     if (window?.kakao) initMap();
