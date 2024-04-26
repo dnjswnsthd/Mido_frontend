@@ -1,7 +1,5 @@
-'use client';
-import { useEffect, useState } from "react";
-import MisigdoList from "../_component/MisigdoList";
 import style from "./home.module.scss";
+import MainMisigdoList from "./_component/MainMisigdoList";
 export interface Pioneer {
   pioneer_id: string; // 참가자 id
   pioneer_nickname: string; // 참가자 닉네임
@@ -50,37 +48,10 @@ export interface ResultDummy {
 export type DummyList = ResultDummy[];
 
 const Home = () => {
-  const [page, setPage] = useState(1);
-  const [misigdoList, setMisigdoList] = useState([]);
-  const getList = async () => {
-    try {
-      const { userId } = JSON.parse(localStorage.getItem('userInfo') as string);
-      const queryParams = new URLSearchParams();
-      queryParams.append('userId', userId)
-      queryParams.append('page', page.toString());
-
-      const response = await fetch(`http://localhost:3001/api/misigdo/list?${queryParams}`, {
-        method: "GET",
-        headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", mode: "no-cors"},
-      });
-
-      
-      if (response.ok) {
-        const {data} = await response.json();
-        setMisigdoList(data);
-      } else {
-        console.log("err");
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  useEffect(()=>{getList()},[])
   return (
     <div className={style.home_page_container}>
       <h1 className={style.home_page_title}></h1>
-      <MisigdoList list={misigdoList} />
+      <MainMisigdoList />
     </div>
   );
 };

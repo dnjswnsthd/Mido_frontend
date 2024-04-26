@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import style from "./misigdoItem.module.scss";
 import ImageList from "./ImageList";
 import MeterBar from "./MeterBar";
