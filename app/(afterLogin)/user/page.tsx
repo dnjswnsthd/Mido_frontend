@@ -1,42 +1,23 @@
 'use client';
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
+// import { GroupInfo } from "../group/page";
 import Profile from "../_component/Profile";
 import style from "./userPage.module.scss";
 import UserGroupList from "./_component/UserGroupList";
-import { GroupInfo } from "../group/page";
+import { useQuery } from "@tanstack/react-query";
+import { getGroupList } from "./_lib/getGroupList";
 
 const UserPage = () => {
-  const [groupList, setGroupList] = useState<GroupInfo[]>([]);
   const [page, setPage] = useState(0);
 
+  const {data: groupList, isError, error ,isLoading, refetch} = useQuery({
+    queryKey: ['getGroupList', 1],
+    queryFn: getGroupList,
+  });
 
-  const getGroupList =useCallback( async () => {
-    try {
-      const { userId } = JSON.parse(localStorage.getItem("userInfo") as string);
-      const queryParams = new URLSearchParams();
-      queryParams.append("userId", userId);
-      queryParams.append("page", page.toString());
-      
-      const response = await fetch(`http://localhost:3001/api/group/list?${queryParams}`, {
-        method: "GET",
-        headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", mode: "no-cors" },
-      });
-      
-      if (response.ok) {
-        const { data } = await response.json();
-        setGroupList(data);
-      } else {
-        
-        console.log("err");
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  },[ page]);
-
-  useEffect(()=>{
-    getGroupList();
-  },[])
+  if(isLoading) return <div>Loading...</div>
+  if(isError) return <div>Error: {error.message}</div>
+  if(!groupList) return null;
 
   return (
     <div className={style.user_page}>
@@ -61,7 +42,7 @@ const UserPage = () => {
           <li>참여 그룹</li>
           <li>요청 대기</li>
         </ul>
-        <UserGroupList list={groupList}/>
+        <UserGroupList list={groupList.data}/>
         <div className={style.pagenation_bar}>
           1
         </div>
