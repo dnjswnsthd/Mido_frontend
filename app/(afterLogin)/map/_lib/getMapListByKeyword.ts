@@ -1,4 +1,7 @@
-export const getMapListByKeyword = async (page: number, keyword: string) => {
+import { QueryFunction } from "@tanstack/react-query";
+
+export const getMapListByKeyword: QueryFunction<any, [_1: string, _2: number, _3: string]> = async ({queryKey}) => {
+    const [_1, page, keyword] = queryKey;
     const { userId } = JSON.parse(localStorage.getItem("userInfo") as string);
     const queryParams = new URLSearchParams();
     queryParams.append("userId", userId);

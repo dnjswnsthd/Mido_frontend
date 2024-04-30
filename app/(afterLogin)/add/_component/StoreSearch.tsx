@@ -4,7 +4,7 @@ import SearchInput from "../../_component/SearchInput";
 import style from "./misigdoForm.module.scss";
 const StoreSearch = () => {
   const [keyword, setKeyword] = useState("");
-  const handleClick = async () => {
+  const handleClick: React.MouseEventHandler<HTMLElement> = () => {
     return;
   };
   return (

@@ -1,11 +1,11 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, MouseEventHandler, SetStateAction } from "react";
 import style from "./searchInput.module.scss";
 import MdiIcon from "./MdiIcon";
 
 type SearchInputProps = {
   value?: string;
   handleValue?: Dispatch<SetStateAction<string>>;
-  onClick?: ()=>Promise<void>;
+  onClick?:any;
 }
 
 const SearchInput = ({value, handleValue, onClick}: SearchInputProps) => {

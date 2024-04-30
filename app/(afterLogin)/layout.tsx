@@ -6,13 +6,13 @@ type AfterLoginLoyoutProps = { children: ReactNode; modal: ReactNode };
 const AfterLoginLoyout = ({ children, modal }: AfterLoginLoyoutProps) => {
   return (
     <div className={style.layout_container}>
-      {/* <RQProvider> */}
+      <RQProvider>
         <div className={style.content_container}>
           {children}
           {modal}
           <NavigationBar />
         </div>
-      {/* </RQProvider> */}
+      </RQProvider>
     </div>
   );
 };

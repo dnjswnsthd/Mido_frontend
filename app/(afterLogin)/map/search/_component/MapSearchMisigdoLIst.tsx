@@ -2,38 +2,27 @@
 import { useEffect, useCallback, useState } from "react";
 import MisigdoList from "@/app/(afterLogin)/_component/MisigdoList";
 import SearchInput from "@/app/(afterLogin)/_component/SearchInput";
-import { useMapStore } from "@/app/store/map";
+// import { useMapStore } from "@/app/store/map";
 import { getMisigdoListByKeyword } from "../../_lib/getMisigdoListByKeyword";
+import { useQuery } from "@tanstack/react-query";
 
 const MapSearchMisigdoList = () => {
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
-  const [misigdoList, setMisigdoList] = useState([]);
-  const mapStore = useMapStore();
-  const getMapList = useCallback(async () => {
-    try {
-      const {data} = await getMisigdoListByKeyword(page, keyword);
-      if (data) {
-        setMisigdoList(data);
-      } else {
-        console.log("err");
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  }, [keyword, page]);
 
-  useEffect(() => {
-    getMapList();
-  }, [getMapList]);
+  const {data: misigdoList, isError, error ,isLoading, refetch} = useQuery({
+    queryKey: ['getMisigdoListByKeyword', 1, keyword],
+    queryFn: getMisigdoListByKeyword,
+  });
 
-  const handleClick = async () => {
-    await getMapList();
-  };
+  if(isLoading) return <div>Loading...</div>
+  if(isError) return <div>Error: {error.message}</div>
+  if(!misigdoList) return null;
+
   return (
     <div>
-      <SearchInput value={keyword} handleValue={setKeyword} onClick={handleClick} />
-      <MisigdoList list={misigdoList} />
+      <SearchInput value={keyword} handleValue={setKeyword} onClick={()=>refetch()} />
+      <MisigdoList list={misigdoList.data} />
     </div>
   );
 };

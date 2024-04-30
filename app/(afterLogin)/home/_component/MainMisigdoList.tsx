@@ -1,32 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import MisigdoList from "../../_component/MisigdoList";
 import { getMisigdoList } from "../_lib/getMisigdoList";
-
+import {useQuery} from "@tanstack/react-query";
 const MainMisigdoList = () => {
-  const [page, setPage] = useState(1);
-  const [misigdoList, setMisigdoList] = useState([]);
-  const getList = async () => {
-    try {
-      const {data} = await getMisigdoList(page);
-      if (data) {
-        setMisigdoList(data);
-      } else {
-        console.log("err");
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  const {data: misigdoList, isError, error ,isLoading} = useQuery({
+    queryKey: ['getMisigdoList', 1],
+    queryFn: getMisigdoList,
+  });
 
-  useEffect(() => {
-    getList();
-  }, []);
+  if(isLoading) return <div>Loading...</div>
+  if(isError) return <div>Error: {error.message}</div>
+  if(!misigdoList) return null;
 
   return (
     <>
-      <MisigdoList list={misigdoList} />
+      <MisigdoList list={misigdoList.data} />
     </>
   );
 };

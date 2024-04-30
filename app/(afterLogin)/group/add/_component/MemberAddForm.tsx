@@ -8,7 +8,7 @@ import style from "../groupAddPage.module.scss";
 const MemberAddForm = () => {
   const [list, setList] = useState<Number[]>([]);
   const [keyword, setKeyword] = useState("");
-  const handleClick = async () => {
+  const handleClick: React.MouseEventHandler<HTMLElement> = () => {
     return;
   };
   return (
