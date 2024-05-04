@@ -33,12 +33,19 @@
         width:40px;
         max-width:40px;
         margin: 0 4px;
+        background-color: rgba(45, 199, 112, 0.5);
         &:first-child{
           margin-left:0;
         }
         &:last-child{
           margin-right:0;
         }
+      }
+      .active_item {
+        background-color: rgba(45, 199, 112, 1);
+        color: rgb(18, 61, 37);
+        font-weight: 900;
+        border: none;
       }
     }
   }

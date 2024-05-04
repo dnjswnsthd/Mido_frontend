@@ -9,6 +9,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/ko";
 import Profile from "./Profile";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 dayjs.locale("ko");
 dayjs.extend(relativeTime);
 
@@ -20,6 +21,8 @@ const MisigdoItem = ({ info }: MisigdoItemProps) => {
   const handleMoreButton = () => {
     router.push(`/detail/${info.group_id}`)
   }
+  const [activeRound, setAcitveRound] = useState(0);
+  const handleActiveRound = (idx: number) => {setAcitveRound(idx)}
   return (
     <li className={style.misigdo_item}>
       <div className={style.misigdo_top_area}>
@@ -40,65 +43,65 @@ const MisigdoItem = ({ info }: MisigdoItemProps) => {
       <div className={style.misigdo_bottom_area}>
         <section className={style.content_left_section}>
           <ul className={style.content_round_list}>
-            {info.round.map((_,i)=><li key={`${_.round_id}${_.round_num}${i}`} className={i===1 ? `${style.content_round_item} ${style.active_item}` : style.content_round_item}>{i+1}차</li>)}
+            {info.round.map((_,i)=><li key={`${_.round_id}${_.round_num}${i}`} className={i===activeRound ? `${style.content_round_item} ${style.active_item}` : style.content_round_item} onClick={()=>handleActiveRound(i)}>{i+1}차</li>)}
           </ul>
-          <ImageList images={info.round[0].review_image} />
+          <ImageList images={info.round[activeRound].review_image} />
         </section>
         <section className={style.content_right_section}>
           <div className={style.content_title}>
-            <h3>{info.round[0].restaurant_name}</h3>
-            <div>{info.round[0].evaluation.total_score}</div>
+            <h3>{info.round[activeRound].restaurant_name}</h3>
+            <div>{info.round[activeRound].evaluation.total_score}</div>
           </div>
           <div className={style.content_menu_row}>
             <p className={style.content_menu_wrap}>
-              <span className={style.content_menu_label}>메인 : </span> <span className={style.content_menu_value}>{info.round[0].main_menu_name}</span>
+              <span className={style.content_menu_label}>메인 : </span> <span className={style.content_menu_value}>{info.round[activeRound].main_menu_name}</span>
             </p>
             <p className={style.content_menu_wrap}>
-              <span className={style.content_menu_label}>서브 : </span> <span className={style.content_menu_value}>{info.round[0].side_menu_name}</span>
+              <span className={style.content_menu_label}>서브 : </span> <span className={style.content_menu_value}>{info.round[activeRound].side_menu_name}</span>
             </p>
           </div>
           <div className={style.content_menu_row}>
             <p className={style.content_menu_wrap}>
               <span className={style.content_menu_label}>주류 : </span>
-              <span className={style.content_menu_value}>{info.round[0].drink_name}</span>
+              <span className={style.content_menu_value}>{info.round[activeRound].drink_name}</span>
             </p>
             <p className={style.content_menu_wrap}>
               <span className={style.content_menu_label}>디저트 : </span>
-              <span className={style.content_menu_value}>{info.round[0].dessert_name}</span>
+              <span className={style.content_menu_value}>{info.round[activeRound].dessert_name}</span>
             </p>
           </div>
           <div className={style.content_address}>
             <span className={style.content_address_label}>주소 : </span>
-            <span className={style.content_address_value}> {info.round[0].restaurant_addr}</span>
+            <span className={style.content_address_value}> {info.round[activeRound].restaurant_addr}</span>
           </div>
 
           <ul className={style.content_review_chart_wrap}>
             <li className={style.content_review_chart_item}>
               <span>음식</span>
               <div className={style.content_review_chart}>
-                <MeterBar value={info.round[0].average_evaluation.food_score} kind="average" />
-                <MeterBar value={info.round[0].evaluation.food_score} kind="target" />
+                <MeterBar value={info.round[activeRound].average_evaluation.food_score} kind="average" />
+                <MeterBar value={info.round[activeRound].evaluation.food_score} kind="target" />
               </div>
             </li>
             <li className={style.content_review_chart_item}>
               <span>서비스</span>
               <div className={style.content_review_chart}>
-                <MeterBar value={info.round[0].average_evaluation.service_score} kind="average" />
-                <MeterBar value={info.round[0].evaluation.service_score} kind="target" />
+                <MeterBar value={info.round[activeRound].average_evaluation.service_score} kind="average" />
+                <MeterBar value={info.round[activeRound].evaluation.service_score} kind="target" />
               </div>
             </li>
             <li className={style.content_review_chart_item}>
               <span>가격</span>
               <div className={style.content_review_chart}>
-                <MeterBar value={info.round[0].average_evaluation.price_score} kind="average" />
-                <MeterBar value={info.round[0].evaluation.price_score} kind="target" />
+                <MeterBar value={info.round[activeRound].average_evaluation.price_score} kind="average" />
+                <MeterBar value={info.round[activeRound].evaluation.price_score} kind="target" />
               </div>
             </li>
             <li className={style.content_review_chart_item}>
               <span>분위기</span>
               <div className={style.content_review_chart}>
-                <MeterBar value={info.round[0].average_evaluation.atmosphere_score} kind="average" />
-                <MeterBar value={info.round[0].evaluation.atmosphere_score} kind="target" />
+                <MeterBar value={info.round[activeRound].average_evaluation.atmosphere_score} kind="average" />
+                <MeterBar value={info.round[activeRound].evaluation.atmosphere_score} kind="target" />
               </div>
             </li>
           </ul>
