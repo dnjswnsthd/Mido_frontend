@@ -2,11 +2,11 @@ import Profile from "../../_component/Profile";
 import { GroupInfo } from "../../group/page";
 import style from "./userGroupItem.module.scss";
 
-type UserGroupItemProps = {
+type UserJoinGroupItemProps = {
   info: GroupInfo;
 }
 
-const UserGroupItem = ({info}: UserGroupItemProps) => {
+const UserJoinGroupItem = ({info}: UserJoinGroupItemProps) => {
   return (
     <li className={style.group_tab_list_item}>
       <div className={style.top_area}>
@@ -30,4 +30,4 @@ const UserGroupItem = ({info}: UserGroupItemProps) => {
   );
 };
 
-export default UserGroupItem;
+export default UserJoinGroupItem;

@@ -33,5 +33,15 @@
     width:100%;
     h3, p{display:flex; padding:8px 8px 0 8px}
     button{margin-top:8px;}
+    .button_list{
+      display:flex;
+      button{
+        display:flex;
+        flex:1;
+        justify-content: center;
+        align-items: center;
+        outline:none;
+      }
+    }
   }
 }

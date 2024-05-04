@@ -1,24 +1,9 @@
-'use client';
-import { useState } from "react";
 // import { GroupInfo } from "../group/page";
 import Profile from "../_component/Profile";
 import style from "./userPage.module.scss";
-import UserGroupList from "./_component/UserGroupList";
-import { useQuery } from "@tanstack/react-query";
-import { getGroupList } from "./_lib/getGroupList";
+import UserGroupListContainer from "./_component/UserGroupListContainer";
 
 const UserPage = () => {
-  const [page, setPage] = useState(0);
-
-  const {data: groupList, isError, error ,isLoading, refetch} = useQuery({
-    queryKey: ['getGroupList', 1],
-    queryFn: getGroupList,
-  });
-
-  if(isLoading) return <div>Loading...</div>
-  if(isError) return <div>Error: {error.message}</div>
-  if(!groupList) return null;
-
   return (
     <div className={style.user_page}>
       <h2 className={style.user_page_title}>
@@ -38,14 +23,7 @@ const UserPage = () => {
         </div>
       </div>
       <div className={style.group_tab_wrap}>
-        <ul className={style.group_tab_nav}>
-          <li>참여 그룹</li>
-          <li>요청 대기</li>
-        </ul>
-        <UserGroupList list={groupList.data}/>
-        <div className={style.pagenation_bar}>
-          1
-        </div>
+        <UserGroupListContainer/>
       </div>
     </div>
   );
